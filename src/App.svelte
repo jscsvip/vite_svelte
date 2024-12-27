@@ -3,6 +3,7 @@
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
   import Input from './lib/Input.svelte'
+  import Quote from './lib/Quote.svelte'
 </script>
 
 <main>
@@ -17,6 +18,7 @@
   <h1>Vite + Svelte</h1>
 
   <div class="card">
+    <Quote />
     <!-- url不能用双引号 会导致fetch报错 -->
     <Counter btnName="Click me" url='http://jsonplaceholder.typicode.com/posts'/>
     <!-- 传值 -->
