@@ -1,6 +1,25 @@
 <script>
   import { fly } from 'svelte/transition';
   let count = $state(0);
+  function once(fn){
+    return function(event){
+      if(fn){
+        fn.call(this, event)
+      }else{
+        fn = null;
+      }
+    }
+  }
+
+  function preventDefault(fn){
+    return function(event){
+      event.preventDefault();
+      fn.call(this, event)
+    }
+  }
+  const handler = () => {
+    count += 1
+  }
 </script>
 <div>
 <!-- 使用key 来控制动画 原理不断重载刷新这个dom -->
@@ -10,7 +29,5 @@
 
 {/key}
 
-<button onclick={() => {
-  count += 1
-}}>Clicked {count}</button>
+<button onclick={once(preventDefault(handler))}>Clicked {count}</button>
 </div>
