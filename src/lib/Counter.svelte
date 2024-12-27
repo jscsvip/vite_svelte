@@ -3,7 +3,7 @@
 <script>
   let count = $state(0)
   let postArr = $state([])
-  let { btnName,url } = $props();
+  let { btnName,url,onChange } = $props();
   const increment = () => {
     count += 1
   }
@@ -25,6 +25,9 @@
 <div>
   <button onclick={increment}>
     {btnName} count is {count} {url?'调用url':'无调用接口'}
+  </button>
+  <button onclick={(e)=>onChange(e,count)}>
+    传给父组件当前点击次数
   </button>
   {#if count > 5}
     <p>小伙子手速很快！You've clicked too many times!</p>

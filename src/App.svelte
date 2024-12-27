@@ -28,7 +28,9 @@
     <!-- url不能用双引号 会导致fetch报错 -->
     <!-- 懒加载 -->
     {#await import('./lib/Counter.svelte') then { default: Counter }}
-      <Counter btnName="Click me" url='http://jsonplaceholder.typicode.com/posts'/>
+      <Counter btnName="Click me" url='http://jsonplaceholder.typicode.com/posts' onChange={(e,count)=>{
+        console.log(e,count)
+      }}/>
     {/await}
    
     <!-- 传值 -->
