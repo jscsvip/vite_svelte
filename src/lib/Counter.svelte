@@ -2,6 +2,7 @@
 
 <script>
   let count = $state(0)
+  let postArr = $state([])
   let { btnName,url } = $props();
   const increment = () => {
     count += 1
@@ -18,7 +19,7 @@
     console.log(url)
     url ?  fetch(url)
     .then(response => response.json())
-    .then(data => console.log(data)) : null
+    .then(data => postArr = data) : null
   })
 </script>
 <div>
@@ -28,6 +29,10 @@
   {#if count > 5}
     <p>小伙子手速很快！You've clicked too many times!</p>
   {/if}
+  <!-- 返回前5个接口文章数据 -->
+  {#each postArr.slice(0,5) as post,index}
+    <p>{index+1}. {post.title}</p>
+  {/each}
 </div>
 
 <style>
