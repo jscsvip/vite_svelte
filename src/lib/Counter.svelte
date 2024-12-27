@@ -21,10 +21,14 @@
     .then(data => console.log(data)) : null
   })
 </script>
-
-<button onclick={increment}>
-  {btnName} count is {count} {url}
-</button>
+<div>
+  <button onclick={increment}>
+    {btnName} count is {count} {url?'调用url':'无调用接口'}
+  </button>
+  {#if count > 5}
+    <p>小伙子手速很快！You've clicked too many times!</p>
+  {/if}
+</div>
 
 <style>
   button {
