@@ -2,6 +2,7 @@
 
 <script>
   let count = $state(0)
+  let { btnName } = $props();
   const increment = () => {
     count += 1
   }
@@ -16,7 +17,7 @@
 </script>
 
 <button onclick={increment}>
-  count is {count}
+  {btnName} count is {count}
 </button>
 
 <style>
