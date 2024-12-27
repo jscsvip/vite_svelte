@@ -1,6 +1,6 @@
 <script>
   import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
+  import InputUpper from './lib/InputUpper.svelte'
   import CounterShow from './lib/CounterShow.svelte'
   import Input from './lib/Input.svelte'
   import Quote from './lib/Quote.svelte'
@@ -17,8 +17,9 @@
       <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
     </a>
   </div>
-  <h1>Vite + Svelte</h1>
-
+  <h1>Vite + Svelte
+  </h1>
+  <InputUpper />
   <div class="card">
     <!-- 数字展示组件 -->
     <CounterShow />
