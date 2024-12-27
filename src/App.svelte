@@ -1,7 +1,7 @@
 <script>
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  // import Counter from './lib/Counter.svelte'
   import Input from './lib/Input.svelte'
   import Quote from './lib/Quote.svelte'
 </script>
@@ -20,7 +20,11 @@
   <div class="card">
     <Quote />
     <!-- url不能用双引号 会导致fetch报错 -->
-    <Counter btnName="Click me" url='http://jsonplaceholder.typicode.com/posts'/>
+    <!-- 懒加载 -->
+    {#await import('./lib/Counter.svelte') then { default: Counter }}
+      <Counter btnName="Click me" url='http://jsonplaceholder.typicode.com/posts'/>
+    {/await}
+   
     <!-- 传值 -->
     <Input initVal={11}/>
   </div>
