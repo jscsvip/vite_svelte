@@ -2,7 +2,7 @@
 
 <script>
   let count = $state(0)
-  let { btnName } = $props();
+  let { btnName,url } = $props();
   const increment = () => {
     count += 1
   }
@@ -14,10 +14,16 @@
     count = 0
     }  
   })
+  $effect(()=>{
+    console.log(url)
+    url ?  fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data)) : null
+  })
 </script>
 
 <button onclick={increment}>
-  {btnName} count is {count}
+  {btnName} count is {count} {url}
 </button>
 
 <style>

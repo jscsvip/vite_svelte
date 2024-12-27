@@ -16,7 +16,8 @@
   <h1>Vite + Svelte</h1>
 
   <div class="card">
-    <Counter btnName="Click me"/>
+    <!-- url不能用双引号 会导致fetch报错 -->
+    <Counter btnName="Click me" url='http://jsonplaceholder.typicode.com/posts'/>
   </div>
 
   <p>
