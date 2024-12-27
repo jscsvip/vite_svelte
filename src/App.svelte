@@ -4,12 +4,14 @@
   import CounterShow from './lib/CounterShow.svelte'
   import Input from './lib/Input.svelte'
   import Quote from './lib/Quote.svelte'
+  import ImgGif from './lib/ImgGif.svelte'
 </script>
 
 <main>
   <div>
     <a href="https://vite.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
+      <!-- <img src={viteLogo} class="logo" alt="Vite Logo" /> -->
+      <ImgGif />
     </a>
     <a href="https://svelte.dev" target="_blank" rel="noreferrer">
       <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
