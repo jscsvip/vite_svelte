@@ -1,7 +1,7 @@
 <script>
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
-  // import Counter from './lib/Counter.svelte'
+  import CounterShow from './lib/CounterShow.svelte'
   import Input from './lib/Input.svelte'
   import Quote from './lib/Quote.svelte'
 </script>
@@ -18,6 +18,9 @@
   <h1>Vite + Svelte</h1>
 
   <div class="card">
+    <!-- 数字展示组件 -->
+    <CounterShow />
+    <!-- 名言组件 -->
     <Quote />
     <!-- url不能用双引号 会导致fetch报错 -->
     <!-- 懒加载 -->
