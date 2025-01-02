@@ -6,6 +6,8 @@
   import Quote from './lib/Quote.svelte'
   import ImgGif from './lib/ImgGif.svelte'
   import RequestImg from './lib/RequestImg.svelte'
+  import Runes from './lib/Runes.svelte'
+  import TodoList from './lib/TodoList.svelte'
   let condition = $state(false) 
   let condition2 = $state(false) 
 </script>
@@ -22,8 +24,12 @@
   </div>
   <h1>Vite + Svelte
   </h1>
-  <InputUpper />
+ 
   <div class="card">
+    <!-- 代办列表 -->
+    <TodoList />
+    <!-- svelte5符文的应用 -->
+    <Runes />
     <!-- 请求图片组件库 -->
     <div>
       <button onclick={()=>{condition2=!condition2}}>加载网络图片{condition2}</button>  
@@ -31,7 +37,8 @@
           <RequestImg /> 
         {/if} 
     </div>
-    
+    <!--- 小写转大写 -->
+     <InputUpper />
     <!-- 数字展示组件 -->
     <div>
         <button onclick={()=>{condition=!condition}}>显示数字动画{condition}</button>  
