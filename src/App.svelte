@@ -5,6 +5,9 @@
   import Input from './lib/Input.svelte'
   import Quote from './lib/Quote.svelte'
   import ImgGif from './lib/ImgGif.svelte'
+  import RequestImg from './lib/RequestImg.svelte'
+  let condition = $state(false) 
+  let condition2 = $state(false) 
 </script>
 
 <main>
@@ -21,9 +24,22 @@
   </h1>
   <InputUpper />
   <div class="card">
+    <!-- 请求图片组件库 -->
+    <div>
+      <button onclick={()=>{condition2=!condition2}}>加载网络图片{condition2}</button>  
+        {#if condition2}
+          <RequestImg /> 
+        {/if} 
+    </div>
+    
     <!-- 数字展示组件 -->
-    button  
-    <CounterShow />
+    <div>
+        <button onclick={()=>{condition=!condition}}>显示数字动画{condition}</button>  
+        {#if condition}
+          <CounterShow />
+        {/if}
+    </div>
+    
     <!-- 名言组件 -->
     <Quote />
     <!-- url不能用双引号 会导致fetch报错 -->
