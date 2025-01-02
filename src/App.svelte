@@ -22,6 +22,7 @@
   <InputUpper />
   <div class="card">
     <!-- 数字展示组件 -->
+    button  
     <CounterShow />
     <!-- 名言组件 -->
     <Quote />
