@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount,onDestroy } from 'svelte';
   let src = $state("https://placehold.co/200");
 
   onMount(() => {
@@ -11,8 +11,12 @@
       .then(([{url}]) => { src = url });
     // 如果组件没加载完就销毁则取消请求
     return () => {
+      console.log("加载组件 被销毁了")
       controller.abort();
     }
+  });
+  onDestroy(() => {
+    console.log('the component is being destroyed');
   });
 </script>
 
