@@ -10,6 +10,8 @@
   import TodoList from './lib/TodoList.svelte'
   import Effect from './lib/Effect.svelte'
   import InputModel from './lib/InputModel.svelte'
+  import Css from './lib2/Css.svelte'
+
   let condition = $state(false) 
   let condition2 = $state(false) 
   // 当父级使用 `bind:` 传递属性的时候，不允许父级传递 undefined。
@@ -28,7 +30,11 @@
   </div>
   <h1>Vite + Svelte
   </h1>
- 
+  <div class="card">
+    <!-- 样式配置 -->
+    <Css />
+  </div>
+
   <div class="card">
     <!-- 父子组件双向绑定 -->
     父组件modelValue:{modelValue}
