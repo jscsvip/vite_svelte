@@ -14,9 +14,17 @@
   function increment() {
     count += 1;
   }
+  // 具有响应式的numbers数组
   let numbers = $state([1, 2, 3]);
+  // 不具有深度响应式(也就是改了数据不会改变视图)numbers数组
+  //如果你想更新对象或数组，不能直接修改对象的属性或者使用 `push`这样的数组方法，而是需要完全替换它： 
+  let numbersRaw = $state.raw([1, 2, 3]);
+//在视图中无法修改内部数据 但在script中可以修改
+  numbersRaw[0] = 6
+  
   // 设置类
   const todo = new Todo('')
+  
 </script>
 <!-- 修改类,响应式 --> 
 <h3>类的响应式</h3>
@@ -41,10 +49,10 @@
 <div>
   <!-- 自动累计器 --->
   <button onclick={() => numbers.push(numbers.length + 1)}>
-    push
+    push 加上
   </button>
   
-  <button onclick={() => numbers.pop()}> pop </button>
+  <button onclick={() => numbers.pop()}> pop 去除</button>
   
   <p>
     {numbers.join(' + ') || 0}
@@ -52,6 +60,21 @@
     {numbers.reduce((a, b) => a + b, 0)}
   </p>
 </div>
+<h3>不具有响应式的测试</h3>
+
+<button onclick={() => numbersRaw = [...numbersRaw, numbersRaw.length + 1]}>
+  update will success 会成功
+</button>
+
+<button onclick={() => numbersRaw.push(numbersRaw.length + 1)}>
+  update will fail  会失败
+</button>
+
+<p>
+  {numbersRaw.join(' + ') || 0}
+  =
+  {numbersRaw.reduce((a, b) => a + b, 0)}
+</p>
 <h3>使用hooks</h3>
 <div>
   <!-- 使用hooks -->
