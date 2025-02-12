@@ -9,8 +9,11 @@
   import Runes from './lib/Runes.svelte'
   import TodoList from './lib/TodoList.svelte'
   import Effect from './lib/Effect.svelte'
+  import InputModel from './lib/InputModel.svelte'
   let condition = $state(false) 
   let condition2 = $state(false) 
+  // 当父级使用 `bind:` 传递属性的时候，不允许父级传递 undefined。
+  let modelValue = $state('1')
 </script>
 
 <main>
@@ -27,6 +30,9 @@
   </h1>
  
   <div class="card">
+    <!-- 父子组件双向绑定 -->
+    父组件modelValue:{modelValue}
+    <InputModel bind:value={modelValue}/>
     <!-- effect.pre的应用 -->
     <Effect />
     <!-- 代办列表 -->

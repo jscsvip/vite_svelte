@@ -84,7 +84,8 @@
 
 <p>
   {numbersRaw.join(' + ') || 0}
-  =
+  =  import Input from './Input.svelte'
+
   {numbersRaw.reduce((a, b) => a + b, 0)}
 </p>
 <h3>使用hooks</h3>
