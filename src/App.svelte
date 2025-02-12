@@ -8,6 +8,7 @@
   import RequestImg from './lib/RequestImg.svelte'
   import Runes from './lib/Runes.svelte'
   import TodoList from './lib/TodoList.svelte'
+  import Effect from './lib/Effect.svelte'
   let condition = $state(false) 
   let condition2 = $state(false) 
 </script>
@@ -26,6 +27,8 @@
   </h1>
  
   <div class="card">
+    <!-- effect.pre的应用 -->
+    <Effect />
     <!-- 代办列表 -->
     <TodoList />
     <!-- svelte5符文的应用 -->
