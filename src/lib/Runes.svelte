@@ -12,16 +12,28 @@
     return count * 3;
   }
   function increment() {
+    
     count += 1;
+  }
+  function increment2() {
+    // 直接打印响应式对象 是一个proxy
+    console.log(useCounter)
+    // 可以获取到proxy下值快照
+    console.log($state.snapshot(useCounter))
+    useCounter.count += 1;
   }
   // 具有响应式的numbers数组
   let numbers = $state([1, 2, 3]);
+  // $derived.by参数是为一个函数，当依赖的数据发生改变时，会重新执行该函数，并返回新的值。用于复杂的计算属性
+  let total = $derived.by(() => {
+    return numbers.reduce((a, b) => a + b, 0);
+  });
   // 不具有深度响应式(也就是改了数据不会改变视图)numbers数组
   //如果你想更新对象或数组，不能直接修改对象的属性或者使用 `push`这样的数组方法，而是需要完全替换它： 
   let numbersRaw = $state.raw([1, 2, 3]);
 //在视图中无法修改内部数据 但在script中可以修改
   numbersRaw[0] = 6
-  
+
   // 设置类
   const todo = new Todo('')
   
@@ -57,7 +69,7 @@
   <p>
     {numbers.join(' + ') || 0}
     =
-    {numbers.reduce((a, b) => a + b, 0)}
+    {total}
   </p>
 </div>
 <h3>不具有响应式的测试</h3>
@@ -78,7 +90,7 @@
 <h3>使用hooks</h3>
 <div>
   <!-- 使用hooks -->
-  <button onclick={()=>{useCounter.count += 1}}>
+  <button onclick={increment2}>
     使用hooks导入外部stateclicks: {useCounter.count}
   </button>
 </div> 
