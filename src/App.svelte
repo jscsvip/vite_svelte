@@ -17,7 +17,8 @@
   import Action4Modal from './lib2/Action4Modal.svelte'
   import Action5LazyLoadImg from './lib2/Action5LazyLoadImg.svelte'
   import Action6Tooltips from './lib2/Action6Tooltips.svelte'
-
+  import Animation from './lib2/Animation.svelte'
+ 
   let condition = $state(false) 
   let condition2 = $state(false) 
   // 当父级使用 `bind:` 传递属性的时候，不允许父级传递 undefined。
@@ -37,7 +38,10 @@
   <h1>Vite + Svelte
   </h1>
   <div class="card">
+    <h2>动画</h2>
+    <Animation />
     <!-- 样式配置 -->
+    <h2>css配置</h2>
     <Css />
     <!-- 组件中元素的生命周期控制 -->
     <h2>action事件的生命周期</h2>
