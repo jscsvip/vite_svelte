@@ -11,6 +11,12 @@
   import Effect from './lib/Effect.svelte'
   import InputModel from './lib/InputModel.svelte'
   import Css from './lib2/Css.svelte'
+  import Action from './lib2/Action.svelte'
+  import Action2Edit from './lib2/Action2Edit.svelte'
+  import Action3DoubleClick from './lib2/Action3DoubleClick.svelte'
+  import Action4Modal from './lib2/Action4Modal.svelte'
+  import Action5LazyLoadImg from './lib2/Action5LazyLoadImg.svelte'
+  import Action6Tooltips from './lib2/Action6Tooltips.svelte'
 
   let condition = $state(false) 
   let condition2 = $state(false) 
@@ -33,6 +39,19 @@
   <div class="card">
     <!-- 样式配置 -->
     <Css />
+    <!-- 组件中元素的生命周期控制 -->
+    <h2>action事件的生命周期</h2>
+    <Action />
+    <h2>编辑状态的切换</h2>
+    <Action2Edit />
+    <h2>双击事件</h2>
+    <Action3DoubleClick />
+    <h2>弹窗</h2>
+    <Action4Modal />
+    <h2>懒加载图片</h2>  
+    <Action5LazyLoadImg />
+    <h2>tooltips</h2>
+    <Action6Tooltips />
   </div>
 
   <div class="card">

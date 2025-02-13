@@ -21,7 +21,30 @@
   <p style:color={count > 1 ? 'red' : 'green'}>{count}</p>
   <!-- 动态绑定css类名 写法1-->
   <p class="{count > 1 ? 'danger' : 'safe'}">{count}</p>
-  <!-- 动态绑定css类名 写法2-->
+  <!-- 动态绑定css类名 写法2export function lazyLoadImage(node) {
+  $effect(() => {
+    const src = node.getAttribute("data-src");
+    let intersecting = false;
+
+    const handleIntersection = (entries) => {
+      intersecting = entries[0].isIntersecting;
+      if (entries[0].intersectionRatio > 0) {
+        node.src = src;
+      }
+      if (intersecting) {
+        observer.unobserve(node);
+      }
+    };
+
+    const observer = new IntersectionObserver(handleIntersection);
+
+    observer.observe(node);
+
+    return () => {
+      observer.unobserve(node);
+    };
+  });
+}-->
   <p
     class:danger={count > 1}
     class:safe={count <= 1}
