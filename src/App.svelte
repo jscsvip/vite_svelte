@@ -18,7 +18,9 @@
   import Action5LazyLoadImg from './lib2/Action5LazyLoadImg.svelte'
   import Action6Tooltips from './lib2/Action6Tooltips.svelte'
   import Animation from './lib2/Animation.svelte'
+  import ModuleScript from './lib2/ModuleScript.svelte'
  
+
   let condition = $state(false) 
   let condition2 = $state(false) 
   // 当父级使用 `bind:` 传递属性的时候，不允许父级传递 undefined。
@@ -38,6 +40,8 @@
   <h1>Vite + Svelte
   </h1>
   <div class="card">
+    <h2>播放器状态只有1个正在播放</h2>
+    <ModuleScript />
     <h2>动画</h2>
     <Animation />
     <!-- 样式配置 -->
